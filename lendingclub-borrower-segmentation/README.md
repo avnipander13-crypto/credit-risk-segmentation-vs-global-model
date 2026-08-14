@@ -1,6 +1,6 @@
 # Does Credit Risk Segmentation Actually Improve Prediction?
 
-Author: **Bee (Avni)** — B.Stat/M.Stat, Indian Statistical Institute, Delhi Centre
+Author: **Avni Pander** — 
 
 A full investigation into a genuinely disputed question in credit risk modeling: does splitting borrowers into segments and building separate models per segment improve default prediction over a single, well-built global model — or has this long-standing practice been superseded by flexible machine learning that can already capture whatever heterogeneity exists in a population? Built on 1.34 million resolved LendingClub loans (2007–2018), using unsupervised segmentation (PCA + K-means) followed by a full supervised model comparison (logistic regression, LDA/QDA, ridge/lasso, Random Forest, boosting) to answer the question directly, empirically, and with formal statistical testing at every step.
 
