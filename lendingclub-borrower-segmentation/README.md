@@ -72,5 +72,5 @@ The investigation was deliberately not accepted at face value on the first pass 
 - The project deliberately stayed within standard, explainable methods throughout (no specialized mixed continuous/categorical clustering, no exhaustive hyperparameter search) given real computational constraints.
 - Calibration was not assessed — a deliberate scope decision, since every metric used throughout is rank-based (AUC), which is unaffected by calibration; this project never used raw probability values for a threshold or pricing decision.
 
-## Author
+
 
