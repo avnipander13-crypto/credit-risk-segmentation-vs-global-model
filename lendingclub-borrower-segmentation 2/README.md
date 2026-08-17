@@ -1,6 +1,6 @@
 # Does Credit Risk Segmentation Actually Improve Prediction?
 
-Author: **Bee (Avni)** — B.Stat/M.Stat, Indian Statistical Institute, Delhi Centre
+Author: Avni Pander
 
 A full investigation into a genuinely disputed question in credit risk modeling: does splitting borrowers into segments and building separate models per segment improve default prediction over a single, well-built global model — or has this long-standing practice been superseded by flexible machine learning that can already capture whatever heterogeneity exists in a population? Built on 1.34 million resolved LendingClub loans (2007–2018), using unsupervised segmentation (PCA + K-means) followed by a full supervised model comparison (logistic regression, LDA/QDA, ridge/lasso, Random Forest, boosting) to answer the question directly, empirically, and with formal statistical testing at every step.
 
@@ -54,7 +54,7 @@ The investigation was deliberately not accepted at face value on the first pass 
 | Rigorous (per-arm tuned) | 0.7226 | 0.7206 | p = 0.123 (not significant) |
 | Final held-out test set | 0.7226 | 0.7203 | Bootstrap 95% CI excludes 0, but see note below |
 
-*Note on the apparent tension in the last row: a bootstrap confidence interval on the test set (resampling which rows are evaluated, holding models fixed) found the gap statistically real — but this measures a different kind of uncertainty than the cross-validated test above (which resamples which data the models are trained on). Both are correct simultaneously: the difference is genuine for these specific fitted models, while its stability under retraining remains less certain. See the prep guide for the full explanation.*
+*Note on the apparent tension in the last row: a bootstrap confidence interval on the test set (resampling which rows are evaluated, holding models fixed) found the gap statistically real — but this measures a different kind of uncertainty than the cross-validated test above (which resamples which data the models are trained on). Both are correct simultaneously: the difference is genuine for these specific fitted models, while its stability under retraining remains less certain.*
 
 **A deeper, genuinely important finding on final review: none of the more flexible methods tested provide a *confirmed* improvement over plain logistic regression.** Boosting had the highest point estimate throughout the project, but a direct statistical test found its advantage over logistic regression was not distinguishable from noise (95% CI includes 0), while its advantage over Random Forest was confirmed. This is consistent with an earlier finding that regularization (ridge/lasso) provided no benefit over unregularized logistic regression — strong, convergent evidence that the relationship between borrower features and default risk in this data is substantially linear.
 
@@ -72,6 +72,4 @@ The investigation was deliberately not accepted at face value on the first pass 
 - The project deliberately stayed within standard, explainable methods throughout (no specialized mixed continuous/categorical clustering, no exhaustive hyperparameter search) given real computational constraints.
 - Calibration was not assessed — a deliberate scope decision, since every metric used throughout is rank-based (AUC), which is unaffected by calibration; this project never used raw probability values for a threshold or pricing decision.
 
-## Author
 
-Built as part of a placement portfolio targeting quantitative research and data science roles.
